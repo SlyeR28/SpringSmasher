@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:c="http://www.springframework.org/schema/c"
+        xsi:schemaLocation=" http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+<!--product beans-->
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product1"
+          c:name="Pen" c:price="195.80"/>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product2"
+          c:name="Pencil Box" c:price="90.00"/>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product3"
+          c:name="Car Mclern" c:price="20000.00"/>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product4"
+          c:name="Algorithms java" c:price="3200.00"/>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product5"
+          c:name="NoteBooks" c:price="80"/>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Product" id="product6"
+          c:name="Study table" c:price="700"/>
+
+<!--address beans-->
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Address" id="add1"
+          c:city="Meerut" c:state="Uttar Pardesh" c:pinCode="2500001"/>
+      <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Address" id="add2"
+          c:city="Dibrugarh" c:state="Assam" c:pinCode="2150006"/>
+      <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Address" id="add3"
+          c:city="ambi" c:state="Pune" c:pinCode="410506"/>
+
+
+
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Customer" id="custo1"
+          c:name="Rishabh">
+        <constructor-arg ref="add3"/>
+    </bean>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Customer" id="custo2"
+          c:name="Prince">
+        <constructor-arg ref="add1"/>
+    </bean>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Customer" id="custo3"
+          c:name="Ankit">
+        <constructor-arg ref="add2"/>
+    </bean>
+
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Order" id="order1"
+          c:orderId="RUSK023">
+        <constructor-arg>
+            <list>
+                <ref bean="product1"/>
+                <ref bean="product2"/>
+                <ref bean="product3"/>
+                <ref bean="product4"/>
+                <ref bean="product5"/>
+                <ref bean="product6"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg ref="custo3"/>
+    </bean>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Order" id="order2"
+          c:orderId="RUSK02345">
+        <constructor-arg>
+            <list>
+                <ref bean="product1"/>
+                <ref bean="product2"/>
+                <ref bean="product4"/>
+                <ref bean="product5"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg ref="custo2"/>
+    </bean>
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.Order" id="order3"
+          c:orderId="RUSK02378T">
+        <constructor-arg>
+            <list>
+                <ref bean="product1"/>
+                <ref bean="product2"/>
+                <ref bean="product3"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg ref="custo1"/>
+    </bean>
+
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform">
+        <constructor-arg>
+            <map>
+                <entry key="ORD234" value-ref="order1"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform1">
+        <constructor-arg>
+            <map>
+                <entry key="ORD567" value-ref="order2"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform3">
+        <constructor-arg>
+            <map>
+                <entry key="ORD5687" value-ref="order3"/>
+            </map>
+        </constructor-arg>
+
+    </bean>
+
+</beans>
