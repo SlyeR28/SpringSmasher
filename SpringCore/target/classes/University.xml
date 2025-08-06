@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:c="http://www.springframework.org/schema/c"
+        xsi:schemaLocation=" http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+<!--Dean beans-->
+ <bean class="org.example.SetterInjections.UniversityCourse.Dean" id="Dean1"
+       p:name="Dr tyagi" p:experience="12"/>
+<!--instructors beans-->
+ <bean class="org.example.SetterInjections.UniversityCourse.Instructor" id="teacher1"
+       p:name="Dr Shakil Tamboli" p:subject="Data Structure And Algorithms"/>
+ <bean class="org.example.SetterInjections.UniversityCourse.Instructor" id="teacher2"
+       p:name="Er sofia " p:subject="Core Java "/>
+ <bean class="org.example.SetterInjections.UniversityCourse.Instructor" id="teacher3"
+       p:name="Er Durgesh " p:subject="Python"/>
+ <bean class="org.example.SetterInjections.UniversityCourse.Instructor" id="teacher4"
+       p:name="Er Sachin Patil" p:subject="AI-ML"/>
+ <bean class="org.example.SetterInjections.UniversityCourse.Instructor" id="teacher5"
+       p:name="poojaSharma" p:subject="MySql"/>
+
+<!--Courses beans-->
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course1"
+          p:title="Backend development" p:duration="9">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher1"/>
+                <ref bean="teacher2"/>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course2"
+          p:title="pyhton development" p:duration="9">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher3"/>
+                <ref bean="teacher4"/>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course3"
+          p:title="java developer" p:duration="5">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher2"/>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course4"
+          p:title="web developer" p:duration="3">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher2"/>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course5"
+          p:title="SQL query writer" p:duration="2">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+    <bean class="org.example.SetterInjections.UniversityCourse.Course" id="course6"
+          p:title="Ai developer" p:duration="12">
+        <property name="instructors">
+            <set>
+                <ref bean="teacher3"/>
+                <ref bean="teacher4"/>
+                <ref bean="teacher5"/>
+            </set>
+        </property>
+    </bean>
+
+<!--university bean main bean-->
+    <bean class="org.example.SetterInjections.UniversityCourse.University" id="university1"
+          p:name="Dy Patil University , Ambi">
+         <property name="courseList">
+             <list>
+                 <ref bean="course1"/>
+                 <ref bean="course2"/>
+                 <ref bean="course3"/>
+                 <ref bean="course4"/>
+                 <ref bean="course5"/>
+                 <ref bean="course6"/>
+             </list>
+         </property>
+
+        <property name="contactDetails">
+            <map>
+                <entry key="Email" value="Dypatil123@gmail.com"/>
+                <entry key="phone number" value="6985679"/>
+                <entry key="fax" value="Ddgsgg"/>
+            </map>
+        </property>
+        <property name="dean" ref="Dean1"/>
+    </bean>
+
+
+
+</beans>
