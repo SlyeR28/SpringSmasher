@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.example.EmployeeMangement.Department" id="departmentBean">
+        <constructor-arg value="Engineeering"/>
+        <constructor-arg value="Banglore"/>
+    </bean>
+
+    <bean class="org.example.EmployeeMangement.Employees" id="Employeesbean">
+        <constructor-arg value="Rishabh kumar"/>
+        <constructor-arg value="001"/>
+        <constructor-arg ref="departmentBean"/>
+    </bean>
+
+    <bean class="org.example.EmployeeMangement.Department" id="departmentBean1">
+        <constructor-arg value="Software Developer"/>
+        <constructor-arg value="Delhi"/>
+    </bean>
+
+    <bean class="org.example.EmployeeMangement.Employees" id="Employeesbean1">
+        <constructor-arg value="Ashish Ranjan"/>
+        <constructor-arg value="0002"/>
+        <constructor-arg ref="departmentBean1"/>
+    </bean>
+
+</beans>
