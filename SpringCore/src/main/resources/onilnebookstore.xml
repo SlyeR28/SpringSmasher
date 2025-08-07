@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list id="bookList">
+        <ref bean="book1"/>
+        <ref bean="book2"/>
+        <ref bean="book3"/>
+        <ref bean="book4"/>
+        <ref bean="book5"/>
+    </util:list>
+
+    <bean class="org.example.AutoWiring.OnlineBookStore.Book" name="book1"
+          c:bookId="1123"  c:bookTitle="Harry Potter"/>
+  <bean class="org.example.AutoWiring.OnlineBookStore.Book" name="book2"
+          c:bookId="1124"  c:bookTitle="Cindrella"/>
+  <bean class="org.example.AutoWiring.OnlineBookStore.Book" name="book3"
+          c:bookId="1125"  c:bookTitle="Rich Dad Poor Dad"/>
+  <bean class="org.example.AutoWiring.OnlineBookStore.Book" name="book4"
+          c:bookId="1126"  c:bookTitle="Keep Quiet"/>
+  <bean class="org.example.AutoWiring.OnlineBookStore.Book" name="book5"
+          c:bookId="1127"  c:bookTitle="Work on Your-self"/>
+
+    <bean class="org.example.AutoWiring.OnlineBookStore.BookRepositroy" name="bookRepositroy">
+        <constructor-arg name="bookList" ref="bookList"/>
+    </bean>
+
+
+    <bean class="org.example.AutoWiring.OnlineBookStore.BookService" name="service1" autowire="byType"/>
+
+</beans>
