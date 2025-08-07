@@ -9,26 +9,10 @@
            http://www.springframework.org/schema/context
            https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean class="org.example.EmployeeMangement.Department" id="departmentBean">
-        <constructor-arg value="Engineeering"/>
-        <constructor-arg value="Banglore"/>
-    </bean>
+    <context:annotation-config/>
+    <bean class="org.example.AutoWiring.EmpAdress.Address" name="address" p:city="Meerut"
+          p:state="Uttar Pardesh" p:pinCode="25001"/>
 
-    <bean class="org.example.EmployeeMangement.Employees" id="Employeesbean">
-        <constructor-arg value="Rishabh kumar"/>
-        <constructor-arg value="001"/>
-        <constructor-arg ref="departmentBean"/>
-    </bean>
-
-    <bean class="org.example.EmployeeMangement.Department" id="departmentBean1">
-        <constructor-arg value="Software Developer"/>
-        <constructor-arg value="Delhi"/>
-    </bean>
-
-    <bean class="org.example.EmployeeMangement.Employees" id="Employeesbean1">
-        <constructor-arg value="Ashish Ranjan"/>
-        <constructor-arg value="0002"/>
-        <constructor-arg ref="departmentBean1"/>
-    </bean>
+    <bean class="org.example.AutoWiring.EmpAdress.Employee" name="Empoye1" />
 
 </beans>

@@ -83,29 +83,16 @@
         <constructor-arg ref="custo1"/>
     </bean>
 
-    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform">
+    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform"
+          init-method="init" destroy-method="destriy">
         <constructor-arg>
             <map>
                 <entry key="ORD234" value-ref="order1"/>
-            </map>
-        </constructor-arg>
-    </bean>
-
-    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform1">
-        <constructor-arg>
-            <map>
+                <entry key="ORD5687" value-ref="order3"/>
                 <entry key="ORD567" value-ref="order2"/>
             </map>
         </constructor-arg>
     </bean>
 
-    <bean class="org.example.ConstructorInjections.EcommerceOrderMang.ECommercePlatform" id="ecormeceplatform3">
-        <constructor-arg>
-            <map>
-                <entry key="ORD5687" value-ref="order3"/>
-            </map>
-        </constructor-arg>
-
-    </bean>
 
 </beans>

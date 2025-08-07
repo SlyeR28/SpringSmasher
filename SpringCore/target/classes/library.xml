@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:c="http://www.springframework.org/schema/c"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation=" http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/util
+           https://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list id="bookList">
+        <ref bean="book1"/>
+        <ref bean="book2"/>
+        <ref bean="book3"/>
+        <ref bean="book4"/>
+    </util:list>
+
+    <bean class="org.example.AutoWiring.LibraryMangement.Book" name="book1"
+          p:bookTitle="Harry Potter" p:authorName="james"/>
+    <bean class="org.example.AutoWiring.LibraryMangement.Book" name="book2"
+          p:bookTitle="To Kill a Mockingbird" p:authorName="Harper  lee"/>
+    <bean class="org.example.AutoWiring.LibraryMangement.Book" name="book3"
+          p:bookTitle="1984" p:authorName="George Orwell"/>
+    <bean class="org.example.AutoWiring.LibraryMangement.Book" name="book4"
+          p:bookTitle="The Alchemist" p:authorName="Paulo Coelho"/>
+
+    <bean class="org.example.AutoWiring.LibraryMangement.Librarianian" name="librarianian"/>
+
+    <bean class="org.example.AutoWiring.LibraryMangement.Library" name="library" autowire="byName">
+        <property name="bookList" ref="bookList"/>
+    </bean>
+
+
+
+
+
+
+
+</beans>

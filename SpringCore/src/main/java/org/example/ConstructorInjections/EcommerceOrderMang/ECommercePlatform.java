@@ -23,4 +23,11 @@ public class ECommercePlatform {
             System.out.println("----");
         }
     }
+
+    public void init(){
+        System.out.println("hey order has been started...please choose carefully");
+    }
+    public void destriy(){
+        System.out.println("tata bye my ... work has been finished...");
+    }
  }
