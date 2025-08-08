@@ -1,5 +1,9 @@
 package org.example.AutoWiring.OnlineBookStore;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 public class BookService {
@@ -10,6 +14,8 @@ public class BookService {
         this.bookRepositroy = bookRepositroy;
     }
 
+    @Autowired
+    @Qualifier("bookRepositroy")
     public void setBookRepositroy(BookRepositroy bookRepositroy) {
         System.out.println("using setter");
         this.bookRepositroy = bookRepositroy;
